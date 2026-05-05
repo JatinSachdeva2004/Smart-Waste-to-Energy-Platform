@@ -30,7 +30,7 @@ frontend/out/
 frontend/tsconfig.tsbuildinfo
 
 # Model files (downloaded at Docker build time)
-models/
+/models/
 
 # Logs & debug files
 kernel.errors.txt
