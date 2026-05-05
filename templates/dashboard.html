@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %}Dashboard — Waste-to-Energy{%
+endblock %} {% block content %}
+<h1 class="text-3xl font-bold mb-6">📊 Dashboard</h1>
+
+<!-- KPI Cards -->
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8"
+  id="kpiCards"
+>
+  <div class="bg-white rounded-xl shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">Records</p>
+    <p class="text-2xl font-bold text-primary" id="kpiRecords">0</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">Total Waste</p>
+    <p class="text-2xl font-bold text-primary" id="kpiMass">0 kg</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">Energy</p>
+    <p class="text-2xl font-bold text-accent" id="kpiEnergy">0 kWh</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">CO₂ Saved</p>
+    <p class="text-2xl font-bold text-green-600" id="kpiCO2">0 kg</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">Water Saved</p>
+    <p class="text-2xl font-bold text-blue-500" id="kpiWater">0 L</p>
+  </div>
+  <div class="bg-white rounded-xl shadow p-4 text-center">
+    <p class="text-xs text-gray-500 uppercase">Methane</p>
+    <p class="text-2xl font-bold text-orange-500" id="kpiMethane">0 kg</p>
+  </div>
+</div>
+
+<!-- Charts Row -->
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+  <div class="bg-white rounded-xl shadow p-5">
+    <h3 class="font-bold mb-3">Waste Type Distribution</h3>
+    <canvas id="chartType" height="250"></canvas>
+  </div>
+  <div class="bg-white rounded-xl shadow p-5">
+    <h3 class="font-bold mb-3">Energy Method Distribution</h3>
+    <canvas id="chartMethod" height="250"></canvas>
+  </div>
+</div>
+
+<!-- Generate Report -->
+<div class="text-center">
+  <button
+    id="genReportBtn"
+    class="bg-secondary text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 transition"
+  >
+    📄 Generate PDF Report
+  </button>
+  <p id="reportStatus" class="text-sm text-gray-500 mt-2 hidden"></p>
+</div>
+{% endblock %} {% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

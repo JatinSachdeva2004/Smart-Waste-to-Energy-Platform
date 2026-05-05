@@ -1,0 +1,212 @@
+{% extends "base.html" %} {% block title %}Upload — Waste-to-Energy{% endblock
+%} {% block content %}
+<div class="grid lg:grid-cols-2 gap-8">
+  <!-- LEFT: Upload Panel -->
+  <div>
+    <h1 class="text-3xl font-bold mb-2">🔬 Analyze Your Waste</h1>
+    <p class="text-gray-500 mb-6">
+      Upload an image to identify waste type, estimate energy potential &
+      environmental impact.
+    </p>
+
+    <div
+      id="dropZone"
+      class="border-2 border-dashed border-gray-300 rounded-2xl p-10 text-center cursor-pointer hover:border-primary hover:bg-green-50 transition-all duration-300 relative"
+    >
+      <input type="file" id="fileInput" accept="image/*" class="hidden" />
+      <div id="dropContent">
+        <p class="text-5xl mb-3">📸</p>
+        <p class="font-semibold text-lg">Drag & drop or click to upload</p>
+        <p class="text-xs text-gray-400 mt-1">JPG, PNG, WEBP — Max 10 MB</p>
+      </div>
+      <img id="previewImg" class="hidden mx-auto max-h-64 rounded-xl" />
+    </div>
+
+    <!-- Advanced Options (collapsible) -->
+    <details class="mt-4 bg-white rounded-xl shadow p-4">
+      <summary class="font-semibold cursor-pointer text-sm">⚙️ Advanced Options (calibration, manual weight, override)</summary>
+      <div class="mt-3 space-y-3">
+        <!-- Manual Weight -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Manual Weight (kg) — overrides vision estimate</label>
+          <input type="number" id="manualWeight" step="0.001" min="0" placeholder="e.g. 0.350" class="w-full border rounded-lg px-3 py-2 text-sm" />
+        </div>
+        <!-- Reference Object -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Reference Object in Image (for calibration)</label>
+          <select id="refType" class="w-full border rounded-lg px-3 py-2 text-sm">
+            <option value="">None — use default estimation</option>
+            <option value="coin_inr">₹ Coin (25mm)</option>
+            <option value="coin_usd">US Quarter (24.3mm)</option>
+            <option value="coin_eur">€1 Coin (23.3mm)</option>
+            <option value="credit_card">Credit/Debit Card (85.6×53.98mm)</option>
+            <option value="a4_paper">A4 Paper Sheet</option>
+          </select>
+        </div>
+        <!-- Waste Type Override -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Override waste type (if AI is wrong)</label>
+          <select id="userWasteType" class="w-full border rounded-lg px-3 py-2 text-sm">
+            <option value="">— Use AI detection —</option>
+            <option value="plastic">Plastic</option>
+            <option value="paper">Paper / Cardboard</option>
+            <option value="metal">Metal</option>
+            <option value="glass">Glass</option>
+            <option value="organic">Organic</option>
+            <option value="ewaste">E-Waste</option>
+            <option value="textile">Textile</option>
+            <option value="wood">Wood</option>
+            <option value="rubber">Rubber</option>
+            <option value="medical">Medical</option>
+            <option value="chemical">Chemical</option>
+            <option value="construction">Construction</option>
+            <option value="composite">Composite</option>
+          </select>
+        </div>
+        <!-- Contamination Level -->
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1">Contamination Level</label>
+          <select id="contamination" class="w-full border rounded-lg px-3 py-2 text-sm">
+            <option value="clean">Clean / Sorted</option>
+            <option value="light" selected>Light (typical)</option>
+            <option value="medium">Medium (mixed / slightly dirty)</option>
+            <option value="heavy">Heavy (wet / very dirty)</option>
+          </select>
+        </div>
+      </div>
+    </details>
+
+    <!-- Subtype selector (appears after detection) -->
+    <div id="subtypePanel" class="hidden mt-4 p-4 bg-white rounded-xl shadow">
+      <label class="block text-sm font-medium mb-1">Refine sub-type (optional):</label>
+      <select id="subtypeSelect" class="w-full border rounded-lg px-3 py-2 text-sm">
+        <option value="">— Auto (use AI detection) —</option>
+      </select>
+      <button id="reAnalyzeBtn"
+        class="mt-2 bg-secondary text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition hidden">
+        Re-analyse with sub-type
+      </button>
+    </div>
+
+    <button id="analyzeBtn"
+      class="mt-4 w-full bg-primary text-white font-semibold py-3 rounded-xl hover:bg-green-600 transition disabled:opacity-40 disabled:cursor-not-allowed"
+      disabled>
+      ⚡ Analyze Waste
+    </button>
+
+    <!-- Loading -->
+    <div id="loader" class="hidden mt-4 text-center">
+      <div class="inline-block w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      <p class="text-sm text-gray-500 mt-2">Analyzing…</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: Results Panel -->
+  <div id="resultsPanel" class="hidden">
+    <h2 class="text-2xl font-bold mb-4">📊 Analysis Results</h2>
+
+    <!-- Warnings Banner -->
+    <div id="warningsBanner" class="hidden mb-4 bg-yellow-50 border border-yellow-300 rounded-xl p-4">
+      <h4 class="font-bold text-yellow-800 text-sm mb-1">⚠️ Warnings</h4>
+      <ul id="warningsList" class="text-xs text-yellow-700 space-y-1"></ul>
+    </div>
+
+    <!-- Multi-object summary bar -->
+    <div id="multiObjBar" class="hidden mb-4 bg-blue-50 border border-blue-200 rounded-xl p-3">
+      <p class="text-sm font-semibold text-blue-800">
+        🔍 Detected <span id="objCount" class="font-bold"></span> objects |
+        Total mass: <span id="totalMass" class="font-mono"></span> kg |
+        Total energy: <span id="totalEnergy" class="font-mono"></span> kWh
+      </p>
+    </div>
+
+    <!-- Dense Pile Analysis Panel -->
+    <div id="densePilePanel" class="hidden mb-4 bg-orange-50 border border-orange-300 rounded-xl p-4">
+      <h4 class="font-bold text-orange-800 text-sm mb-2">📦 Dense Waste Pile Analysis</h4>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+        <div class="bg-white rounded-lg p-2 text-center shadow-sm">
+          <p class="text-lg font-bold text-orange-600" id="dpDetected">0</p>
+          <p class="text-xs text-gray-500">Detected</p>
+        </div>
+        <div class="bg-white rounded-lg p-2 text-center shadow-sm">
+          <p class="text-lg font-bold text-orange-600" id="dpEstimated">0</p>
+          <p class="text-xs text-gray-500">Estimated Total</p>
+        </div>
+        <div class="bg-white rounded-lg p-2 text-center shadow-sm">
+          <p class="text-lg font-bold text-orange-600" id="dpMass">0</p>
+          <p class="text-xs text-gray-500">Est. Mass (kg)</p>
+        </div>
+        <div class="bg-white rounded-lg p-2 text-center shadow-sm">
+          <p class="text-lg font-bold text-orange-600" id="dpCoverage">0%</p>
+          <p class="text-xs text-gray-500">Coverage</p>
+        </div>
+      </div>
+      <div id="dpBreakdown" class="space-y-1"></div>
+      <p class="text-xs text-orange-600 mt-2" id="dpMethod"></p>
+    </div>
+    </div>
+
+    <!-- Detection Info (primary object) -->
+    <div class="bg-white rounded-xl shadow p-5 mb-4">
+      <div class="flex items-center gap-4">
+        <div class="relative group cursor-pointer" onclick="document.getElementById('imgLightbox').classList.remove('hidden')">
+          <img id="resultImg" class="w-28 h-28 object-cover rounded-lg" />
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+            <span class="text-white text-xl">🔍</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-lg font-bold" id="resType"></p>
+          <p class="text-sm text-gray-500" id="resSubtype"></p>
+          <p class="text-sm">
+            Confidence:
+            <span id="resConf" class="font-mono font-semibold"></span>
+            <span id="resConfBadge" class="ml-1 text-xs px-2 py-0.5 rounded-full"></span>
+          </p>
+          <p class="text-sm">
+            Mass: <span id="resMass" class="font-mono font-semibold"></span>
+            <span id="resMassRange" class="text-xs text-gray-400 ml-1"></span>
+          </p>
+          <p class="text-xs text-gray-400" id="resMethod"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Per-object cards (for multi-object) -->
+    <div id="objectCards" class="space-y-3 mb-4"></div>
+
+    <!-- Energy Pathways -->
+    <div class="bg-white rounded-xl shadow p-5 mb-4">
+      <h3 class="font-bold text-lg mb-3">⚡ Energy Pathways</h3>
+      <div id="pathwayBars"></div>
+      <p class="mt-3 text-sm">
+        Best: <span id="resBestMethod" class="font-bold text-primary"></span> →
+        <span id="resBestEnergy" class="font-mono"></span> kWh
+        <span id="resRealisticEnergy" class="text-xs text-gray-400 ml-1"></span>
+      </p>
+      <!-- Energy modifiers info -->
+      <div id="energyModifiers" class="mt-2 text-xs text-gray-500 bg-gray-50 rounded-lg p-2"></div>
+    </div>
+
+    <!-- Environmental Impact -->
+    <div class="bg-white rounded-xl shadow p-5 mb-4">
+      <h3 class="font-bold text-lg mb-3">🌍 Environmental Impact</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="envGrid"></div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-white rounded-xl shadow p-5 mb-4">
+      <h3 class="font-bold text-lg mb-2">💡 Recommendation</h3>
+      <pre id="recText" class="whitespace-pre-wrap text-sm bg-gray-50 p-3 rounded-lg"></pre>
+      <ul id="recSteps" class="mt-3 text-sm space-y-1"></ul>
+    </div>
+  </div>
+</div>
+<!-- Fullscreen Image Lightbox -->
+<div id="imgLightbox" class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onclick="if(event.target===this)this.classList.add('hidden')">
+  <button onclick="document.getElementById('imgLightbox').classList.add('hidden')" class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-400 transition z-10">&times;</button>
+  <img id="lightboxImg" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+</div>
+{% endblock %} {% block scripts %}
+<script src="/static/js/upload.js"></script>
+{% endblock %}

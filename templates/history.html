@@ -1,0 +1,118 @@
+{% extends "base.html" %} {% block title %}History — Waste-to-Energy{% endblock
+%} {% block content %}
+<h1 class="text-3xl font-bold mb-6">📋 Analysis History</h1>
+
+<div class="bg-white rounded-xl shadow overflow-x-auto">
+  <table class="w-full text-sm">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th class="px-4 py-3 text-left">#</th>
+        <th class="px-4 py-3 text-left">Type</th>
+        <th class="px-4 py-3 text-left">Sub-type</th>
+        <th class="px-4 py-3 text-right">Mass (kg)</th>
+        <th class="px-4 py-3 text-right">Energy (kWh)</th>
+        <th class="px-4 py-3 text-right">CO₂ (kg)</th>
+        <th class="px-4 py-3 text-left">Method</th>
+        <th class="px-4 py-3 text-left">Date</th>
+        <th class="px-4 py-3 text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody id="historyBody" class="divide-y">
+      <tr>
+        <td colspan="9" class="text-center py-8 text-gray-400">Loading…</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Detail Modal -->
+<div
+  id="detailModal"
+  class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+>
+  <div
+    class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative"
+  >
+    <button
+      id="closeModal"
+      class="absolute top-3 right-3 text-2xl text-gray-400 hover:text-gray-700"
+    >
+      &times;
+    </button>
+    <h2 class="text-xl font-bold mb-4">Record Details</h2>
+    <div id="modalContent"></div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  async function loadHistory() {
+    const res = await fetch("/api/records");
+    const data = await res.json();
+    const tbody = document.getElementById("historyBody");
+    if (!data.records || data.records.length === 0) {
+      tbody.innerHTML =
+        '<tr><td colspan="9" class="text-center py-8 text-gray-400">No records yet. Upload an image to get started!</td></tr>';
+      return;
+    }
+    tbody.innerHTML = data.records
+      .map(
+        (r, i) => `
+        <tr class="hover:bg-gray-50 cursor-pointer" onclick="showDetail(${r.id})">
+            <td class="px-4 py-2">${r.id}</td>
+            <td class="px-4 py-2 font-medium">${r.waste_type}</td>
+            <td class="px-4 py-2">${r.waste_subtype || "—"}</td>
+            <td class="px-4 py-2 text-right font-mono">${r.estimated_mass_kg.toFixed(3)}</td>
+            <td class="px-4 py-2 text-right font-mono">${r.best_energy_kwh.toFixed(4)}</td>
+            <td class="px-4 py-2 text-right font-mono">${r.co2_saved_kg.toFixed(4)}</td>
+            <td class="px-4 py-2">${r.best_method}</td>
+            <td class="px-4 py-2 text-xs">${new Date(r.created_at).toLocaleDateString()}</td>
+            <td class="px-4 py-2 text-center">
+                <button onclick="event.stopPropagation(); deleteRecord(${r.id})"
+                        class="text-red-500 hover:text-red-700 text-xs">🗑️</button>
+            </td>
+        </tr>
+    `,
+      )
+      .join("");
+  }
+
+  async function showDetail(id) {
+    const r = await (await fetch(`/api/records/${id}`)).json();
+    const m = document.getElementById("modalContent");
+    m.innerHTML = `
+        <div class="grid sm:grid-cols-2 gap-4">
+            <img src="${r.annotated_image_path}" class="rounded-lg w-full" onerror="this.src='${r.image_path}'"/>
+            <div class="text-sm space-y-1">
+                <p><b>Type:</b> ${r.waste_type}</p>
+                <p><b>Sub-type:</b> ${r.waste_subtype || "—"}</p>
+                <p><b>Mass:</b> ${r.estimated_mass_kg.toFixed(3)} kg</p>
+                <p><b>Best Method:</b> ${r.best_method}</p>
+                <p><b>Energy:</b> ${r.best_energy_kwh.toFixed(4)} kWh</p>
+                <p><b>CO₂ Saved:</b> ${r.co2_saved_kg.toFixed(4)} kg</p>
+                <p><b>Water Saved:</b> ${r.water_saved_liters.toFixed(2)} L</p>
+                <p><b>Trees Equiv:</b> ${r.trees_equivalent.toFixed(4)}</p>
+                <p><b>Hazardous:</b> ${r.is_hazardous ? "⚠️ Yes" : "No"}</p>
+                <p><b>Recyclable:</b> ${r.is_recyclable ? "♻️ Yes" : "No"}</p>
+            </div>
+        </div>
+        <div class="mt-4 bg-gray-50 p-3 rounded-lg text-sm">
+            <b>Recommendation:</b><br/>
+            <pre class="whitespace-pre-wrap">${r.recommendation_text}</pre>
+        </div>
+    `;
+    document.getElementById("detailModal").classList.remove("hidden");
+  }
+
+  document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("detailModal").classList.add("hidden");
+  });
+
+  async function deleteRecord(id) {
+    if (!confirm("Delete this record?")) return;
+    await fetch(`/api/records/${id}`, { method: "DELETE" });
+    loadHistory();
+  }
+
+  loadHistory();
+</script>
+{% endblock %}

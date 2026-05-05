@@ -1,0 +1,1504 @@
+{
+  "plastic": {
+    "display_name": "Plastic",
+    "icon": "🟡",
+    "subtypes": {
+      "pet": {
+        "name": "PET (Polyethylene Terephthalate)",
+        "examples": "Water bottles, soft drink bottles, food containers",
+        "density_kg_m3": 1380,
+        "energy_content_mj_kg": 46.2,
+        "co2_landfill_factor": 2.29,
+        "co2_conversion_factor": 0.49,
+        "water_saved_per_kg_liters": 17.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.5,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.28,
+          "pyrolysis": 0.42,
+          "biogas": 0.0,
+          "gasification": 0.35,
+          "plasma_arc": 0.45,
+          "recycling_energy_saved_pct": 0.76
+        },
+        "virgin_production_energy_mj_kg": 80.0
+      },
+      "hdpe": {
+        "name": "HDPE (High-Density Polyethylene)",
+        "examples": "Milk jugs, detergent bottles, pipes",
+        "density_kg_m3": 970,
+        "energy_content_mj_kg": 43.0,
+        "co2_landfill_factor": 2.1,
+        "co2_conversion_factor": 0.45,
+        "water_saved_per_kg_liters": 15.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.27,
+          "pyrolysis": 0.41,
+          "biogas": 0.0,
+          "gasification": 0.34,
+          "plasma_arc": 0.44,
+          "recycling_energy_saved_pct": 0.79
+        },
+        "virgin_production_energy_mj_kg": 76.0
+      },
+      "pvc": {
+        "name": "PVC (Polyvinyl Chloride)",
+        "examples": "Pipes, window frames, flooring",
+        "density_kg_m3": 1400,
+        "energy_content_mj_kg": 18.0,
+        "co2_landfill_factor": 1.9,
+        "co2_conversion_factor": 0.7,
+        "water_saved_per_kg_liters": 10.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 1.5,
+        "recyclable": true,
+        "hazardous": true,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.15,
+          "pyrolysis": 0.25,
+          "biogas": 0.0,
+          "gasification": 0.2,
+          "plasma_arc": 0.35,
+          "recycling_energy_saved_pct": 0.65
+        },
+        "virgin_production_energy_mj_kg": 60.0
+      },
+      "ldpe": {
+        "name": "LDPE (Low-Density Polyethylene)",
+        "examples": "Plastic bags, wraps, films, squeeze bottles",
+        "density_kg_m3": 925,
+        "energy_content_mj_kg": 40.0,
+        "co2_landfill_factor": 2.05,
+        "co2_conversion_factor": 0.44,
+        "water_saved_per_kg_liters": 14.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.4,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.27,
+          "pyrolysis": 0.4,
+          "biogas": 0.0,
+          "gasification": 0.33,
+          "plasma_arc": 0.43,
+          "recycling_energy_saved_pct": 0.72
+        },
+        "virgin_production_energy_mj_kg": 72.0
+      },
+      "pp": {
+        "name": "PP (Polypropylene)",
+        "examples": "Bottle caps, food containers, yogurt cups",
+        "density_kg_m3": 946,
+        "energy_content_mj_kg": 42.0,
+        "co2_landfill_factor": 2.08,
+        "co2_conversion_factor": 0.46,
+        "water_saved_per_kg_liters": 15.5,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.27,
+          "pyrolysis": 0.41,
+          "biogas": 0.0,
+          "gasification": 0.34,
+          "plasma_arc": 0.44,
+          "recycling_energy_saved_pct": 0.75
+        },
+        "virgin_production_energy_mj_kg": 73.0
+      },
+      "ps": {
+        "name": "PS / Styrofoam (Polystyrene)",
+        "examples": "Disposable cups, packaging foam, egg cartons",
+        "density_kg_m3": 1050,
+        "energy_content_mj_kg": 38.0,
+        "co2_landfill_factor": 2.15,
+        "co2_conversion_factor": 0.5,
+        "water_saved_per_kg_liters": 12.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.6,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.26,
+          "pyrolysis": 0.39,
+          "biogas": 0.0,
+          "gasification": 0.32,
+          "plasma_arc": 0.42,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 85.0
+      }
+    }
+  },
+  "paper": {
+    "display_name": "Paper & Cardboard",
+    "icon": "📄",
+    "subtypes": {
+      "newspaper": {
+        "name": "Newspaper",
+        "examples": "Daily papers, flyers, inserts",
+        "density_kg_m3": 750,
+        "energy_content_mj_kg": 17.0,
+        "co2_landfill_factor": 1.8,
+        "co2_conversion_factor": 0.3,
+        "water_saved_per_kg_liters": 26.0,
+        "methane_factor": 0.05,
+        "leachate_factor": 0.2,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling", "incineration", "gasification"],
+        "method_efficiency": {
+          "incineration": 0.25,
+          "pyrolysis": 0.3,
+          "biogas": 0.15,
+          "gasification": 0.3,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.68
+        },
+        "virgin_production_energy_mj_kg": 32.0
+      },
+      "cardboard": {
+        "name": "Corrugated Cardboard",
+        "examples": "Shipping boxes, packaging boxes",
+        "density_kg_m3": 200,
+        "energy_content_mj_kg": 16.0,
+        "co2_landfill_factor": 1.75,
+        "co2_conversion_factor": 0.28,
+        "water_saved_per_kg_liters": 31.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.2,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.24,
+          "pyrolysis": 0.28,
+          "biogas": 0.12,
+          "gasification": 0.28,
+          "plasma_arc": 0.36,
+          "recycling_energy_saved_pct": 0.7
+        },
+        "virgin_production_energy_mj_kg": 30.0
+      },
+      "office_paper": {
+        "name": "Office / Printer Paper",
+        "examples": "A4 paper, documents, printed sheets",
+        "density_kg_m3": 800,
+        "energy_content_mj_kg": 15.0,
+        "co2_landfill_factor": 1.7,
+        "co2_conversion_factor": 0.27,
+        "water_saved_per_kg_liters": 28.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.1,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.23,
+          "pyrolysis": 0.27,
+          "biogas": 0.1,
+          "gasification": 0.27,
+          "plasma_arc": 0.35,
+          "recycling_energy_saved_pct": 0.72
+        },
+        "virgin_production_energy_mj_kg": 35.0
+      },
+      "magazine": {
+        "name": "Magazines / Glossy Paper",
+        "examples": "Magazines, catalogs, glossy flyers",
+        "density_kg_m3": 900,
+        "energy_content_mj_kg": 12.0,
+        "co2_landfill_factor": 1.5,
+        "co2_conversion_factor": 0.25,
+        "water_saved_per_kg_liters": 20.0,
+        "methane_factor": 0.03,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.2,
+          "pyrolysis": 0.24,
+          "biogas": 0.08,
+          "gasification": 0.24,
+          "plasma_arc": 0.32,
+          "recycling_energy_saved_pct": 0.6
+        },
+        "virgin_production_energy_mj_kg": 28.0
+      },
+      "tissue": {
+        "name": "Tissue / Napkins",
+        "examples": "Toilet paper, napkins, paper towels",
+        "density_kg_m3": 100,
+        "energy_content_mj_kg": 14.0,
+        "co2_landfill_factor": 1.6,
+        "co2_conversion_factor": 0.26,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.1,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["incineration", "biogas"],
+        "method_efficiency": {
+          "incineration": 0.22,
+          "pyrolysis": 0.25,
+          "biogas": 0.2,
+          "gasification": 0.25,
+          "plasma_arc": 0.33,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 25.0
+      }
+    }
+  },
+  "metal": {
+    "display_name": "Metal",
+    "icon": "🔩",
+    "subtypes": {
+      "aluminum": {
+        "name": "Aluminum",
+        "examples": "Cans, foil, window frames",
+        "density_kg_m3": 2700,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 9.1,
+        "co2_conversion_factor": 0.46,
+        "water_saved_per_kg_liters": 40.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.2,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.1,
+          "recycling_energy_saved_pct": 0.95
+        },
+        "virgin_production_energy_mj_kg": 170.0
+      },
+      "steel": {
+        "name": "Steel",
+        "examples": "Food cans, appliances, car parts",
+        "density_kg_m3": 7800,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 2.8,
+        "co2_conversion_factor": 0.73,
+        "water_saved_per_kg_liters": 25.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.08,
+          "recycling_energy_saved_pct": 0.74
+        },
+        "virgin_production_energy_mj_kg": 25.0
+      },
+      "copper": {
+        "name": "Copper",
+        "examples": "Wires, pipes, coins, electronics",
+        "density_kg_m3": 8960,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 3.5,
+        "co2_conversion_factor": 0.53,
+        "water_saved_per_kg_liters": 35.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.8,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.1,
+          "recycling_energy_saved_pct": 0.85
+        },
+        "virgin_production_energy_mj_kg": 95.0
+      },
+      "iron": {
+        "name": "Iron",
+        "examples": "Tools, fences, old structures",
+        "density_kg_m3": 7870,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 2.5,
+        "co2_conversion_factor": 0.7,
+        "water_saved_per_kg_liters": 20.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.4,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.08,
+          "recycling_energy_saved_pct": 0.72
+        },
+        "virgin_production_energy_mj_kg": 22.0
+      },
+      "tin": {
+        "name": "Tin",
+        "examples": "Tin cans, coatings",
+        "density_kg_m3": 7310,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 2.3,
+        "co2_conversion_factor": 0.74,
+        "water_saved_per_kg_liters": 18.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.07,
+          "recycling_energy_saved_pct": 0.68
+        },
+        "virgin_production_energy_mj_kg": 20.0
+      }
+    }
+  },
+  "glass": {
+    "display_name": "Glass",
+    "icon": "🫙",
+    "subtypes": {
+      "clear": {
+        "name": "Clear / Flint Glass",
+        "examples": "Water bottles, jars, windows",
+        "density_kg_m3": 2500,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.87,
+        "co2_conversion_factor": 0.18,
+        "water_saved_per_kg_liters": 2.5,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.05,
+          "recycling_energy_saved_pct": 0.3
+        },
+        "virgin_production_energy_mj_kg": 15.0
+      },
+      "green": {
+        "name": "Green Glass",
+        "examples": "Wine bottles, beer bottles",
+        "density_kg_m3": 2500,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.87,
+        "co2_conversion_factor": 0.18,
+        "water_saved_per_kg_liters": 2.5,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.05,
+          "recycling_energy_saved_pct": 0.3
+        },
+        "virgin_production_energy_mj_kg": 15.0
+      },
+      "brown": {
+        "name": "Brown / Amber Glass",
+        "examples": "Beer bottles, medicine bottles",
+        "density_kg_m3": 2500,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.87,
+        "co2_conversion_factor": 0.18,
+        "water_saved_per_kg_liters": 2.5,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.05,
+          "recycling_energy_saved_pct": 0.3
+        },
+        "virgin_production_energy_mj_kg": 15.0
+      },
+      "mixed": {
+        "name": "Mixed / Contaminated Glass",
+        "examples": "Broken mixed-color glass, mirrors",
+        "density_kg_m3": 2500,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.87,
+        "co2_conversion_factor": 0.2,
+        "water_saved_per_kg_liters": 1.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.1,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.05,
+          "recycling_energy_saved_pct": 0.15
+        },
+        "virgin_production_energy_mj_kg": 15.0
+      }
+    }
+  },
+  "organic": {
+    "display_name": "Organic / Food Waste",
+    "icon": "🍎",
+    "subtypes": {
+      "fruit_vegetable": {
+        "name": "Fruit & Vegetable Waste",
+        "examples": "Peels, rotten fruits, vegetable scraps",
+        "density_kg_m3": 600,
+        "energy_content_mj_kg": 5.0,
+        "co2_landfill_factor": 0.58,
+        "co2_conversion_factor": 0.1,
+        "water_saved_per_kg_liters": 1.0,
+        "methane_factor": 0.06,
+        "leachate_factor": 1.0,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.45,
+        "best_methods": ["biogas", "gasification"],
+        "method_efficiency": {
+          "incineration": 0.12,
+          "pyrolysis": 0.15,
+          "biogas": 0.65,
+          "gasification": 0.25,
+          "plasma_arc": 0.3,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "cooked_food": {
+        "name": "Cooked Food / Leftovers",
+        "examples": "Rice, roti, curry, dal, leftover meals",
+        "density_kg_m3": 700,
+        "energy_content_mj_kg": 6.0,
+        "co2_landfill_factor": 0.62,
+        "co2_conversion_factor": 0.12,
+        "water_saved_per_kg_liters": 0.5,
+        "methane_factor": 0.07,
+        "leachate_factor": 1.2,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.5,
+        "best_methods": ["biogas"],
+        "method_efficiency": {
+          "incineration": 0.14,
+          "pyrolysis": 0.17,
+          "biogas": 0.68,
+          "gasification": 0.22,
+          "plasma_arc": 0.3,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "dairy": {
+        "name": "Dairy Products",
+        "examples": "Expired milk, cheese, yogurt, paneer",
+        "density_kg_m3": 1030,
+        "energy_content_mj_kg": 8.0,
+        "co2_landfill_factor": 0.72,
+        "co2_conversion_factor": 0.15,
+        "water_saved_per_kg_liters": 1.0,
+        "methane_factor": 0.08,
+        "leachate_factor": 1.5,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.55,
+        "best_methods": ["biogas"],
+        "method_efficiency": {
+          "incineration": 0.16,
+          "pyrolysis": 0.2,
+          "biogas": 0.7,
+          "gasification": 0.25,
+          "plasma_arc": 0.32,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "meat_fish": {
+        "name": "Meat & Fish Waste",
+        "examples": "Bones, trimmings, fish heads, shells",
+        "density_kg_m3": 950,
+        "energy_content_mj_kg": 7.0,
+        "co2_landfill_factor": 0.68,
+        "co2_conversion_factor": 0.14,
+        "water_saved_per_kg_liters": 0.5,
+        "methane_factor": 0.09,
+        "leachate_factor": 2.0,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.48,
+        "best_methods": ["biogas"],
+        "method_efficiency": {
+          "incineration": 0.15,
+          "pyrolysis": 0.18,
+          "biogas": 0.66,
+          "gasification": 0.22,
+          "plasma_arc": 0.3,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "grain_bakery": {
+        "name": "Grain & Bakery Waste",
+        "examples": "Stale bread, expired rice, flour, biscuits",
+        "density_kg_m3": 550,
+        "energy_content_mj_kg": 4.0,
+        "co2_landfill_factor": 0.52,
+        "co2_conversion_factor": 0.09,
+        "water_saved_per_kg_liters": 0.5,
+        "methane_factor": 0.05,
+        "leachate_factor": 0.8,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.42,
+        "best_methods": ["biogas"],
+        "method_efficiency": {
+          "incineration": 0.1,
+          "pyrolysis": 0.14,
+          "biogas": 0.62,
+          "gasification": 0.2,
+          "plasma_arc": 0.28,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      }
+    }
+  },
+  "ewaste": {
+    "display_name": "E-Waste",
+    "icon": "📱",
+    "subtypes": {
+      "phones_tablets": {
+        "name": "Mobile Phones / Tablets",
+        "examples": "Smartphones, tablets, iPods",
+        "density_kg_m3": 1800,
+        "energy_content_mj_kg": 15.0,
+        "co2_landfill_factor": 5.5,
+        "co2_conversion_factor": 1.2,
+        "water_saved_per_kg_liters": 50.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 8.0,
+        "recyclable": true,
+        "hazardous": true,
+        "best_methods": ["plasma_arc", "recycling"],
+        "method_efficiency": {
+          "incineration": 0.1,
+          "pyrolysis": 0.2,
+          "biogas": 0.0,
+          "gasification": 0.15,
+          "plasma_arc": 0.45,
+          "recycling_energy_saved_pct": 0.9
+        },
+        "virgin_production_energy_mj_kg": 250.0
+      },
+      "laptops_desktops": {
+        "name": "Laptops / Desktops",
+        "examples": "Laptop computers, desktop towers, monitors",
+        "density_kg_m3": 1500,
+        "energy_content_mj_kg": 12.0,
+        "co2_landfill_factor": 4.8,
+        "co2_conversion_factor": 1.0,
+        "water_saved_per_kg_liters": 45.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 7.0,
+        "recyclable": true,
+        "hazardous": true,
+        "best_methods": ["plasma_arc", "recycling"],
+        "method_efficiency": {
+          "incineration": 0.08,
+          "pyrolysis": 0.18,
+          "biogas": 0.0,
+          "gasification": 0.12,
+          "plasma_arc": 0.42,
+          "recycling_energy_saved_pct": 0.88
+        },
+        "virgin_production_energy_mj_kg": 220.0
+      },
+      "batteries": {
+        "name": "Batteries",
+        "examples": "Li-ion, NiMH, Alkaline, AA, AAA, phone batteries",
+        "density_kg_m3": 2500,
+        "energy_content_mj_kg": 5.0,
+        "co2_landfill_factor": 6.0,
+        "co2_conversion_factor": 1.5,
+        "water_saved_per_kg_liters": 60.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 15.0,
+        "recyclable": true,
+        "hazardous": true,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.2,
+          "recycling_energy_saved_pct": 0.7
+        },
+        "virgin_production_energy_mj_kg": 150.0
+      },
+      "cables_wires": {
+        "name": "Cables & Wires",
+        "examples": "USB cables, power cords, ethernet cables",
+        "density_kg_m3": 2000,
+        "energy_content_mj_kg": 20.0,
+        "co2_landfill_factor": 3.2,
+        "co2_conversion_factor": 0.8,
+        "water_saved_per_kg_liters": 30.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 5.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling", "pyrolysis"],
+        "method_efficiency": {
+          "incineration": 0.15,
+          "pyrolysis": 0.3,
+          "biogas": 0.0,
+          "gasification": 0.2,
+          "plasma_arc": 0.4,
+          "recycling_energy_saved_pct": 0.85
+        },
+        "virgin_production_energy_mj_kg": 120.0
+      },
+      "pcb": {
+        "name": "Circuit Boards (PCBs)",
+        "examples": "Motherboards, RAM, graphics cards, chips",
+        "density_kg_m3": 2200,
+        "energy_content_mj_kg": 10.0,
+        "co2_landfill_factor": 8.0,
+        "co2_conversion_factor": 2.0,
+        "water_saved_per_kg_liters": 70.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 20.0,
+        "recyclable": true,
+        "hazardous": true,
+        "best_methods": ["plasma_arc", "recycling"],
+        "method_efficiency": {
+          "incineration": 0.05,
+          "pyrolysis": 0.15,
+          "biogas": 0.0,
+          "gasification": 0.1,
+          "plasma_arc": 0.48,
+          "recycling_energy_saved_pct": 0.92
+        },
+        "virgin_production_energy_mj_kg": 300.0
+      }
+    }
+  },
+  "textile": {
+    "display_name": "Textile / Fabric",
+    "icon": "👕",
+    "subtypes": {
+      "cotton": {
+        "name": "Cotton / Natural Fibers",
+        "examples": "T-shirts, jeans, cotton bags, towels",
+        "density_kg_m3": 400,
+        "energy_content_mj_kg": 15.0,
+        "co2_landfill_factor": 1.5,
+        "co2_conversion_factor": 0.3,
+        "water_saved_per_kg_liters": 10.0,
+        "methane_factor": 0.03,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["incineration", "pyrolysis", "recycling"],
+        "method_efficiency": {
+          "incineration": 0.25,
+          "pyrolysis": 0.32,
+          "biogas": 0.15,
+          "gasification": 0.28,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.5
+        },
+        "virgin_production_energy_mj_kg": 55.0
+      },
+      "polyester": {
+        "name": "Polyester / Synthetic",
+        "examples": "Jackets, sportswear, curtains",
+        "density_kg_m3": 500,
+        "energy_content_mj_kg": 32.0,
+        "co2_landfill_factor": 2.4,
+        "co2_conversion_factor": 0.5,
+        "water_saved_per_kg_liters": 8.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.5,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.28,
+          "pyrolysis": 0.4,
+          "biogas": 0.0,
+          "gasification": 0.33,
+          "plasma_arc": 0.43,
+          "recycling_energy_saved_pct": 0.6
+        },
+        "virgin_production_energy_mj_kg": 90.0
+      },
+      "leather": {
+        "name": "Leather",
+        "examples": "Bags, shoes, belts, jackets",
+        "density_kg_m3": 860,
+        "energy_content_mj_kg": 18.0,
+        "co2_landfill_factor": 1.8,
+        "co2_conversion_factor": 0.35,
+        "water_saved_per_kg_liters": 12.0,
+        "methane_factor": 0.02,
+        "leachate_factor": 1.0,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["incineration", "pyrolysis"],
+        "method_efficiency": {
+          "incineration": 0.26,
+          "pyrolysis": 0.35,
+          "biogas": 0.1,
+          "gasification": 0.3,
+          "plasma_arc": 0.4,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 65.0
+      },
+      "wool_silk": {
+        "name": "Wool / Silk",
+        "examples": "Sweaters, scarves, silk sarees",
+        "density_kg_m3": 350,
+        "energy_content_mj_kg": 20.0,
+        "co2_landfill_factor": 1.7,
+        "co2_conversion_factor": 0.33,
+        "water_saved_per_kg_liters": 15.0,
+        "methane_factor": 0.03,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.27,
+          "pyrolysis": 0.34,
+          "biogas": 0.12,
+          "gasification": 0.29,
+          "plasma_arc": 0.39,
+          "recycling_energy_saved_pct": 0.55
+        },
+        "virgin_production_energy_mj_kg": 70.0
+      }
+    }
+  },
+  "wood": {
+    "display_name": "Wood",
+    "icon": "🪵",
+    "subtypes": {
+      "construction": {
+        "name": "Construction Timber",
+        "examples": "Beams, planks, scaffolding",
+        "density_kg_m3": 600,
+        "energy_content_mj_kg": 19.0,
+        "co2_landfill_factor": 1.4,
+        "co2_conversion_factor": 0.25,
+        "water_saved_per_kg_liters": 5.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["gasification", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.26,
+          "pyrolysis": 0.33,
+          "biogas": 0.1,
+          "gasification": 0.36,
+          "plasma_arc": 0.4,
+          "recycling_energy_saved_pct": 0.4
+        },
+        "virgin_production_energy_mj_kg": 10.0
+      },
+      "furniture": {
+        "name": "Furniture Wood",
+        "examples": "Tables, chairs, bookshelves",
+        "density_kg_m3": 550,
+        "energy_content_mj_kg": 17.0,
+        "co2_landfill_factor": 1.35,
+        "co2_conversion_factor": 0.24,
+        "water_saved_per_kg_liters": 4.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.4,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["gasification", "incineration", "recycling"],
+        "method_efficiency": {
+          "incineration": 0.25,
+          "pyrolysis": 0.31,
+          "biogas": 0.08,
+          "gasification": 0.34,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.38
+        },
+        "virgin_production_energy_mj_kg": 10.0
+      },
+      "pallets": {
+        "name": "Pallets / Crates",
+        "examples": "Shipping pallets, wooden crates",
+        "density_kg_m3": 500,
+        "energy_content_mj_kg": 18.0,
+        "co2_landfill_factor": 1.38,
+        "co2_conversion_factor": 0.24,
+        "water_saved_per_kg_liters": 4.5,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.3,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["gasification", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.25,
+          "pyrolysis": 0.32,
+          "biogas": 0.09,
+          "gasification": 0.35,
+          "plasma_arc": 0.39,
+          "recycling_energy_saved_pct": 0.35
+        },
+        "virgin_production_energy_mj_kg": 10.0
+      },
+      "mdf_plywood": {
+        "name": "MDF / Plywood",
+        "examples": "Particle board, plywood sheets, laminate",
+        "density_kg_m3": 750,
+        "energy_content_mj_kg": 15.0,
+        "co2_landfill_factor": 1.5,
+        "co2_conversion_factor": 0.3,
+        "water_saved_per_kg_liters": 3.0,
+        "methane_factor": 0.03,
+        "leachate_factor": 0.8,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["incineration", "gasification"],
+        "method_efficiency": {
+          "incineration": 0.22,
+          "pyrolysis": 0.28,
+          "biogas": 0.05,
+          "gasification": 0.3,
+          "plasma_arc": 0.36,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 15.0
+      }
+    }
+  },
+  "rubber": {
+    "display_name": "Rubber",
+    "icon": "🔴",
+    "subtypes": {
+      "tires": {
+        "name": "Vehicle Tires",
+        "examples": "Car tires, truck tires, bike tires",
+        "density_kg_m3": 1150,
+        "energy_content_mj_kg": 37.0,
+        "co2_landfill_factor": 3.2,
+        "co2_conversion_factor": 0.6,
+        "water_saved_per_kg_liters": 8.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 2.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.28,
+          "pyrolysis": 0.42,
+          "biogas": 0.0,
+          "gasification": 0.34,
+          "plasma_arc": 0.45,
+          "recycling_energy_saved_pct": 0.5
+        },
+        "virgin_production_energy_mj_kg": 85.0
+      },
+      "industrial": {
+        "name": "Industrial Rubber",
+        "examples": "Gaskets, conveyor belts, seals, mats",
+        "density_kg_m3": 1100,
+        "energy_content_mj_kg": 33.0,
+        "co2_landfill_factor": 2.8,
+        "co2_conversion_factor": 0.55,
+        "water_saved_per_kg_liters": 6.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 1.5,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.27,
+          "pyrolysis": 0.4,
+          "biogas": 0.0,
+          "gasification": 0.32,
+          "plasma_arc": 0.43,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 80.0
+      },
+      "footwear": {
+        "name": "Rubber Footwear",
+        "examples": "Rubber sandals, rain boots, slippers",
+        "density_kg_m3": 1050,
+        "energy_content_mj_kg": 32.0,
+        "co2_landfill_factor": 2.7,
+        "co2_conversion_factor": 0.52,
+        "water_saved_per_kg_liters": 5.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 1.0,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.26,
+          "pyrolysis": 0.39,
+          "biogas": 0.0,
+          "gasification": 0.31,
+          "plasma_arc": 0.42,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 75.0
+      }
+    }
+  },
+  "medical": {
+    "display_name": "Medical / Hazardous",
+    "icon": "🏥",
+    "subtypes": {
+      "sharps": {
+        "name": "Syringes / Sharps",
+        "examples": "Needles, lancets, scalpels, syringes",
+        "density_kg_m3": 1200,
+        "energy_content_mj_kg": 20.0,
+        "co2_landfill_factor": 3.5,
+        "co2_conversion_factor": 0.8,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 10.0,
+        "recyclable": false,
+        "hazardous": true,
+        "best_methods": ["incineration", "plasma_arc"],
+        "method_efficiency": {
+          "incineration": 0.22,
+          "pyrolysis": 0.18,
+          "biogas": 0.0,
+          "gasification": 0.15,
+          "plasma_arc": 0.4,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "ppe": {
+        "name": "PPE (Masks, Gloves, Gowns)",
+        "examples": "Face masks, surgical gloves, hospital gowns",
+        "density_kg_m3": 300,
+        "energy_content_mj_kg": 25.0,
+        "co2_landfill_factor": 2.8,
+        "co2_conversion_factor": 0.6,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 3.0,
+        "recyclable": false,
+        "hazardous": true,
+        "best_methods": ["incineration", "plasma_arc"],
+        "method_efficiency": {
+          "incineration": 0.25,
+          "pyrolysis": 0.3,
+          "biogas": 0.0,
+          "gasification": 0.22,
+          "plasma_arc": 0.42,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "pharmaceutical": {
+        "name": "Pharmaceutical Waste",
+        "examples": "Expired medicines, tablets, syrups",
+        "density_kg_m3": 800,
+        "energy_content_mj_kg": 12.0,
+        "co2_landfill_factor": 4.0,
+        "co2_conversion_factor": 1.0,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 12.0,
+        "recyclable": false,
+        "hazardous": true,
+        "best_methods": ["incineration", "plasma_arc"],
+        "method_efficiency": {
+          "incineration": 0.18,
+          "pyrolysis": 0.15,
+          "biogas": 0.0,
+          "gasification": 0.12,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "chemical_containers": {
+        "name": "Chemical Containers",
+        "examples": "Reagent bottles, chemical drums, lab containers",
+        "density_kg_m3": 1100,
+        "energy_content_mj_kg": 15.0,
+        "co2_landfill_factor": 3.8,
+        "co2_conversion_factor": 0.9,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 18.0,
+        "recyclable": false,
+        "hazardous": true,
+        "best_methods": ["plasma_arc"],
+        "method_efficiency": {
+          "incineration": 0.15,
+          "pyrolysis": 0.12,
+          "biogas": 0.0,
+          "gasification": 0.1,
+          "plasma_arc": 0.35,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      }
+    }
+  },
+  "construction": {
+    "display_name": "Construction & Demolition",
+    "icon": "🏗️",
+    "subtypes": {
+      "concrete": {
+        "name": "Concrete / Cement",
+        "examples": "Concrete blocks, slabs, cement bags",
+        "density_kg_m3": 2400,
+        "energy_content_mj_kg": 0.5,
+        "co2_landfill_factor": 0.4,
+        "co2_conversion_factor": 0.05,
+        "water_saved_per_kg_liters": 1.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.2,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.02,
+          "recycling_energy_saved_pct": 0.3
+        },
+        "virgin_production_energy_mj_kg": 1.5
+      },
+      "bricks": {
+        "name": "Bricks",
+        "examples": "Clay bricks, cement bricks",
+        "density_kg_m3": 2000,
+        "energy_content_mj_kg": 0.2,
+        "co2_landfill_factor": 0.3,
+        "co2_conversion_factor": 0.03,
+        "water_saved_per_kg_liters": 0.5,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.1,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.01,
+          "recycling_energy_saved_pct": 0.25
+        },
+        "virgin_production_energy_mj_kg": 3.0
+      },
+      "tiles": {
+        "name": "Roof / Floor Tiles",
+        "examples": "Clay roof tiles, concrete tiles",
+        "density_kg_m3": 2100,
+        "energy_content_mj_kg": 0.1,
+        "co2_landfill_factor": 0.25,
+        "co2_conversion_factor": 0.02,
+        "water_saved_per_kg_liters": 0.3,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.1,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.01,
+          "recycling_energy_saved_pct": 0.2
+        },
+        "virgin_production_energy_mj_kg": 4.0
+      },
+      "insulation": {
+        "name": "Insulation Material",
+        "examples": "Foam insulation, fiberglass, mineral wool",
+        "density_kg_m3": 50,
+        "energy_content_mj_kg": 25.0,
+        "co2_landfill_factor": 2.2,
+        "co2_conversion_factor": 0.5,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 1.0,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["incineration"],
+        "method_efficiency": {
+          "incineration": 0.2,
+          "pyrolysis": 0.25,
+          "biogas": 0.0,
+          "gasification": 0.18,
+          "plasma_arc": 0.35,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 45.0
+      }
+    }
+  },
+  "ceramic": {
+    "display_name": "Ceramic & Pottery",
+    "icon": "🏺",
+    "subtypes": {
+      "clay_pots": {
+        "name": "Clay Pots",
+        "examples": "Flower pots, matka, terracotta items",
+        "density_kg_m3": 1900,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.1,
+        "co2_conversion_factor": 0.01,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.0,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.0,
+          "recycling_energy_saved_pct": 0.1
+        },
+        "virgin_production_energy_mj_kg": 5.0
+      },
+      "porcelain": {
+        "name": "Porcelain",
+        "examples": "Toilets, sinks, fine china, cups",
+        "density_kg_m3": 2400,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.12,
+        "co2_conversion_factor": 0.01,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.0,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.0,
+          "recycling_energy_saved_pct": 0.08
+        },
+        "virgin_production_energy_mj_kg": 8.0
+      },
+      "decorative_tiles": {
+        "name": "Decorative Tiles",
+        "examples": "Mosaic tiles, decorative wall tiles",
+        "density_kg_m3": 2200,
+        "energy_content_mj_kg": 0.0,
+        "co2_landfill_factor": 0.11,
+        "co2_conversion_factor": 0.01,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.0,
+          "plasma_arc": 0.0,
+          "recycling_energy_saved_pct": 0.12
+        },
+        "virgin_production_energy_mj_kg": 6.0
+      }
+    }
+  },
+  "composite": {
+    "display_name": "Composite / Multi-material",
+    "icon": "📦",
+    "subtypes": {
+      "tetra_pak": {
+        "name": "Tetra Pak",
+        "examples": "Juice boxes, milk cartons (paper+plastic+foil)",
+        "density_kg_m3": 400,
+        "energy_content_mj_kg": 22.0,
+        "co2_landfill_factor": 1.9,
+        "co2_conversion_factor": 0.4,
+        "water_saved_per_kg_liters": 10.0,
+        "methane_factor": 0.02,
+        "leachate_factor": 0.5,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.24,
+          "pyrolysis": 0.35,
+          "biogas": 0.08,
+          "gasification": 0.28,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.45
+        },
+        "virgin_production_energy_mj_kg": 50.0
+      },
+      "laminated": {
+        "name": "Laminated Pouches",
+        "examples": "Chip bags, sauce packets, snack wrappers",
+        "density_kg_m3": 450,
+        "energy_content_mj_kg": 26.0,
+        "co2_landfill_factor": 2.1,
+        "co2_conversion_factor": 0.45,
+        "water_saved_per_kg_liters": 5.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.8,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["pyrolysis", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.25,
+          "pyrolysis": 0.38,
+          "biogas": 0.0,
+          "gasification": 0.3,
+          "plasma_arc": 0.4,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 55.0
+      },
+      "diapers": {
+        "name": "Diapers / Sanitary Products",
+        "examples": "Disposable diapers, sanitary pads, tampons",
+        "density_kg_m3": 350,
+        "energy_content_mj_kg": 20.0,
+        "co2_landfill_factor": 2.0,
+        "co2_conversion_factor": 0.42,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.03,
+        "leachate_factor": 2.0,
+        "recyclable": false,
+        "hazardous": false,
+        "best_methods": ["incineration", "pyrolysis"],
+        "method_efficiency": {
+          "incineration": 0.23,
+          "pyrolysis": 0.32,
+          "biogas": 0.05,
+          "gasification": 0.25,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      }
+    }
+  },
+  "garden": {
+    "display_name": "Garden / Agricultural",
+    "icon": "🌿",
+    "subtypes": {
+      "dry_leaves": {
+        "name": "Dry Leaves / Straw",
+        "examples": "Fallen leaves, hay, dried grass, straw",
+        "density_kg_m3": 80,
+        "energy_content_mj_kg": 14.0,
+        "co2_landfill_factor": 0.8,
+        "co2_conversion_factor": 0.15,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.3,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.3,
+        "best_methods": ["gasification", "biogas", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.22,
+          "pyrolysis": 0.28,
+          "biogas": 0.45,
+          "gasification": 0.34,
+          "plasma_arc": 0.38,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "crop_residue": {
+        "name": "Crop Residue",
+        "examples": "Stubble, husks, corn stalks, sugarcane bagasse",
+        "density_kg_m3": 120,
+        "energy_content_mj_kg": 13.0,
+        "co2_landfill_factor": 0.75,
+        "co2_conversion_factor": 0.14,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.04,
+        "leachate_factor": 0.2,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.35,
+        "best_methods": ["biogas", "gasification"],
+        "method_efficiency": {
+          "incineration": 0.2,
+          "pyrolysis": 0.26,
+          "biogas": 0.5,
+          "gasification": 0.32,
+          "plasma_arc": 0.36,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "grass": {
+        "name": "Grass Clippings",
+        "examples": "Lawn cuttings, grass trimmings",
+        "density_kg_m3": 200,
+        "energy_content_mj_kg": 10.0,
+        "co2_landfill_factor": 0.6,
+        "co2_conversion_factor": 0.1,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.05,
+        "leachate_factor": 0.5,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.4,
+        "best_methods": ["biogas"],
+        "method_efficiency": {
+          "incineration": 0.15,
+          "pyrolysis": 0.2,
+          "biogas": 0.55,
+          "gasification": 0.25,
+          "plasma_arc": 0.32,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      },
+      "branches": {
+        "name": "Tree Branches / Pruning",
+        "examples": "Tree branches, twigs, pruning waste, bark",
+        "density_kg_m3": 500,
+        "energy_content_mj_kg": 15.0,
+        "co2_landfill_factor": 0.9,
+        "co2_conversion_factor": 0.16,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.03,
+        "leachate_factor": 0.2,
+        "recyclable": false,
+        "hazardous": false,
+        "biogas_yield_m3_per_kg": 0.25,
+        "best_methods": ["gasification", "incineration"],
+        "method_efficiency": {
+          "incineration": 0.24,
+          "pyrolysis": 0.3,
+          "biogas": 0.35,
+          "gasification": 0.35,
+          "plasma_arc": 0.39,
+          "recycling_energy_saved_pct": 0.0
+        },
+        "virgin_production_energy_mj_kg": 0.0
+      }
+    }
+  },
+  "ash": {
+    "display_name": "Ash & Residue",
+    "icon": "ite",
+    "subtypes": {
+      "incinerator_ash": {
+        "name": "Coal / Incinerator Ash",
+        "examples": "Bottom ash, char, coal ash",
+        "density_kg_m3": 1500,
+        "energy_content_mj_kg": 2.0,
+        "co2_landfill_factor": 0.15,
+        "co2_conversion_factor": 0.02,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 0.5,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.05,
+          "plasma_arc": 0.1,
+          "recycling_energy_saved_pct": 0.15
+        },
+        "virgin_production_energy_mj_kg": 2.0
+      },
+      "fly_ash": {
+        "name": "Fly Ash / Slag",
+        "examples": "Power plant fly ash, blast furnace slag",
+        "density_kg_m3": 1200,
+        "energy_content_mj_kg": 0.5,
+        "co2_landfill_factor": 0.1,
+        "co2_conversion_factor": 0.01,
+        "water_saved_per_kg_liters": 0.0,
+        "methane_factor": 0.0,
+        "leachate_factor": 1.0,
+        "recyclable": true,
+        "hazardous": false,
+        "best_methods": ["recycling"],
+        "method_efficiency": {
+          "incineration": 0.0,
+          "pyrolysis": 0.0,
+          "biogas": 0.0,
+          "gasification": 0.02,
+          "plasma_arc": 0.05,
+          "recycling_energy_saved_pct": 0.2
+        },
+        "virgin_production_energy_mj_kg": 3.0
+      }
+    }
+  }
+}

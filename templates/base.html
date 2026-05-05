@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Smart Waste-to-Energy{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#10B981",
+              secondary: "#3B82F6",
+              accent: "#F59E0B",
+              dark: "#1E293B",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-dark text-white shadow-lg sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <a href="/" class="text-xl font-bold flex items-center gap-2">
+          <span class="text-3xl">♻️</span>
+          <span
+            class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          >
+            Waste-to-Energy
+          </span>
+        </a>
+        <div class="hidden md:flex gap-6 text-sm font-medium">
+          <a href="/" class="hover:text-primary transition">Home</a>
+          <a href="/dashboard" class="hover:text-primary transition"
+            >Dashboard</a
+          >
+          <a href="/history" class="hover:text-primary transition">History</a>
+          <a href="/analytics" class="hover:text-primary transition"
+            >Analytics</a
+          >
+        </div>
+        <!-- Mobile menu toggle -->
+        <button id="mobileMenuBtn" class="md:hidden text-2xl">☰</button>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden px-4 pb-3 space-y-2 text-sm">
+        <a href="/" class="block hover:text-primary">Home</a>
+        <a href="/dashboard" class="block hover:text-primary">Dashboard</a>
+        <a href="/history" class="block hover:text-primary">History</a>
+        <a href="/analytics" class="block hover:text-primary">Analytics</a>
+      </div>
+    </nav>
+
+    <!-- Flash messages -->
+    <div id="flashContainer" class="max-w-7xl mx-auto px-4 mt-2"></div>
+
+    <!-- Main content -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 py-6 w-full">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-400 text-center py-4 text-xs">
+      Smart Waste-to-Energy Platform &copy; 2025 &mdash; Jatin Sachdeva
+      (229310366)
+    </footer>
+
+    <script>
+      // Mobile menu
+      document
+        .getElementById("mobileMenuBtn")
+        ?.addEventListener("click", () => {
+          document.getElementById("mobileMenu")?.classList.toggle("hidden");
+        });
+
+      // Flash helper
+      function showFlash(msg, type = "success") {
+        const c = document.getElementById("flashContainer");
+        const colors = {
+          success: "bg-green-100 text-green-800",
+          error: "bg-red-100 text-red-800",
+          info: "bg-blue-100 text-blue-800",
+        };
+        const div = document.createElement("div");
+        div.className = `${colors[type] || colors.info} px-4 py-2 rounded mb-2 text-sm`;
+        div.textContent = msg;
+        c.appendChild(div);
+        setTimeout(() => div.remove(), 5000);
+      }
+    </script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,46 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database (runtime data)
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads & generated files (runtime data)
+uploads/
+reports/
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/tsconfig.tsbuildinfo
+
+# Model files (downloaded at Docker build time)
+models/
+
+# Logs & debug files
+kernel.errors.txt
+test_debug.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

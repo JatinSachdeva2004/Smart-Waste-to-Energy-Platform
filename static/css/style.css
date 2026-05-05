@@ -1,0 +1,68 @@
+/* Smart Waste-to-Energy — Custom overrides (Tailwind handles most styling) */
+
+/* Smooth page transitions */
+main {
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drop zone active state */
+.drop-active {
+  border-color: #10b981 !important;
+  background: #ecfdf5 !important;
+  transform: scale(1.01);
+}
+
+/* Pathway bar animation */
+.pathway-bar {
+  height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* KPI card hover */
+#kpiCards > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s;
+}
+
+/* Table row hover */
+tbody tr:hover {
+  background-color: #f0fdf4 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Badge helpers */
+.badge-hazardous {
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+.badge-recyclable {
+  background: #ecfdf5;
+  color: #047857;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+}

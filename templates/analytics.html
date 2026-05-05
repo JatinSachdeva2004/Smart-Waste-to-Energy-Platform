@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Analytics — Waste-to-Energy{%
+endblock %} {% block content %}
+<h1 class="text-3xl font-bold mb-6">📈 Analytics & Forecasting</h1>
+
+<div class="grid md:grid-cols-2 gap-6 mb-8">
+  <!-- Daily Trends -->
+  <div class="bg-white rounded-xl shadow p-5">
+    <h3 class="font-bold mb-3">Daily Mass Trend (30 days)</h3>
+    <canvas id="chartTrend" height="250"></canvas>
+  </div>
+  <!-- Energy Trend -->
+  <div class="bg-white rounded-xl shadow p-5">
+    <h3 class="font-bold mb-3">Daily Energy Yield</h3>
+    <canvas id="chartEnergy" height="250"></canvas>
+  </div>
+</div>
+
+<!-- Forecast -->
+<div class="bg-white rounded-xl shadow p-5 mb-8">
+  <h3 class="font-bold mb-3">7-Day Forecast</h3>
+  <canvas id="chartForecast" height="200"></canvas>
+  <p class="text-xs text-gray-400 mt-2">
+    Linear extrapolation based on last 30 days of data.
+  </p>
+</div>
+{% endblock %} {% block scripts %}
+<script src="/static/js/analytics.js"></script>
+{% endblock %}
